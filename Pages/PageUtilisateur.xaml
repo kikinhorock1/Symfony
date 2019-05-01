@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Symfonax.PageUtilisateur">
+<ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <!--  Email -->
+            <Label x:Name="LabelEmail"  
+                         Text="Email :" 
+                         Grid.Row="1" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Email"
+                         Text="" 
+                         Grid.Row="1"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            <!--  Nom -->
+            <Label x:Name="LabelNom"
+                         Text="Nom :" 
+                         Grid.Row="2" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Nom"
+                         Text="" 
+                         Grid.Row="2"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+
+            <!--  Prenom -->
+            <Label x:Name="LabelPrenom"
+                         Text="Prenom :" 
+                         Grid.Row="3" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Prenom"
+                         Text="" 
+                         Grid.Row="3"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+
+            <!--  Formation -->
+            <Label x:Name="LabelFormation"
+                         Text="Formation :" 
+                         Grid.Row="4" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Formation"
+                         Text="" 
+                         Grid.Row="4"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            <!--  Username -->
+            <Label x:Name="LabelUsername"
+                         Text="Pseudonyme :" 
+                         Grid.Row="5" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Username"
+                         Text="" 
+                         Grid.Row="5"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                   
+                         />
+
+            <!--  Password -->
+            <Label x:Name="LabelPassword"
+                         Text="Mot de passe :" 
+                         Grid.Row="6" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Password"
+                         Text="********" 
+                         Grid.Row="6"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

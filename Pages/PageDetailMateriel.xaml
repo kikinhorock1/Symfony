@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Symfonax.PageDetailMateriel">
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+            <!--  Catégorie -->
+            <Label x:Name="CategorieLabel"  
+                         Text="Catégorie :" 
+                         Grid.Row="1" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Categorie"
+                         Text="0" 
+                         Grid.Row="1"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            <!--  Marque -->
+            <Label x:Name="MarqueLabel"
+                         Text="Marque :" 
+                         Grid.Row="2" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Marque"
+                         Text="0" 
+                         Grid.Row="2"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+
+            <!--  Description -->
+            <Label x:Name="DescriptionLabel"
+                         Text="Description :" 
+                         Grid.Row="3" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Description"
+                         Text="0" 
+                         Grid.Row="3"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+
+            <!--  Provenance -->
+            <Label x:Name="ProvenanceLabel"
+                         Text="Provenance :" 
+                         Grid.Row="4" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Provenance"
+                         Text="0" 
+                         Grid.Row="4"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            <!--  Etat -->
+            <Label x:Name="EtatLabel"
+                         Text="Etat :" 
+                         Grid.Row="5" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Etat"
+                         Text="0" 
+                         Grid.Row="5"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            <Button x:Name="BoutonTest"
+                Clicked="BoutonTest_Clicked"
+                Text="Emprunter"
+                Grid.Row="7"
+                Grid.Column="2"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Symfonax.PageDetailEmprunt">
+        <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="*" />
+
+            </Grid.ColumnDefinitions>
+             <!--  nom matériel -->
+            <Label x:Name="descriptionLabel"  
+                         Text="nom :" 
+                         Grid.Row="1" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="description"
+                         Text="0" 
+                         Grid.Row="1"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            
+            <!--  DatePret -->
+            <Label x:Name="DatePretLabel"  
+                         Text="Date du pret :" 
+                         Grid.Row="2" 
+                         Grid.Column="1" 
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="DatePret"
+                         Text="0" 
+                         Grid.Row="2"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            <!--  DateRetourDemander -->
+            <Label x:Name="DateRetourDemanderLabel"
+                         Text="Date retour demander :" 
+                         Grid.Row="3" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="DateRetourDemander"
+                         Text="0" 
+                         Grid.Row="3"
+                         Grid.Column="2" 
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+
+            <!--  DateRetourEffectif -->
+            <Label x:Name="DateRetourEffectifLabel"
+                         Text="Date retour effectif :" 
+                         Grid.Row="4" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="DateRetourEffectif"
+                         Text="0" 
+                         Grid.Row="4"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+            
+             <!--  Incident -->
+            <Label x:Name="IncidentLabel"
+                         Text="Incident :" 
+                         Grid.Row="5" 
+                         Grid.Column="1"
+                         TextColor="Gray"
+                         FontSize="18" 
+                         />
+
+            <Label x:Name="Incident"
+                         Text="0" 
+                         Grid.Row="5"
+                         Grid.Column="2"
+                         Grid.ColumnSpan="2"
+                         TextColor="Black"
+                         FontSize="20" 
+                         />
+                    </Grid>    
+    </ContentPage.Content>
+</ContentPage>

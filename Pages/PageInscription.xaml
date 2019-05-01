@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Symfonax.PageInscription">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Margin="20,0,20,0">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+
+                <Label x:Name="LabelInfo" Text="Créer un compte !" HorizontalOptions="Center" Grid.Row="1" Margin="0,-10,0,0" FontSize="20"/>
+                <Entry x:Name="EntryNom" Grid.Row="2" Placeholder="Nom" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry x:Name="EntryPrenom" Grid.Row="3" Placeholder="Prénom" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry x:Name="EntryUser" Grid.Row="4" Placeholder="nom d'utilisateur" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry x:Name="EntryMail" Grid.Row="5" Placeholder="example@example.com" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry x:Name="EntryFormation" Grid.Row="6" Placeholder="Formation" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry x:Name="EntryPassword"  Grid.Row="7" Placeholder="votre mot de passe" IsPassword = "true" PlaceholderColor="#bababa" FontSize="16"/>
+                <Entry x:Name="EntryPassword2"  Grid.Row="8" Placeholder="confirmation mot de passe" IsPassword = "true" PlaceholderColor="#bababa" FontSize="16"/>
+                <Label x:Name="LabelAideConnexion" Text="" HorizontalOptions="Center" Grid.Row="11" Margin="0,10,0,0" FontSize="9"/>
+                <Button x:Name="ValidationCompte"  Text="Connexion" BackgroundColor="#3897f0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="10"/>
+
+
+
+
+            </Grid>
+
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
