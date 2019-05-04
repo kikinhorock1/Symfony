@@ -119,7 +119,7 @@ namespace Symfonax
 
 
         // async on lance la fonction pour récupérer liste historique user
-        public async Task<List<RecupListeHistoriqueUser>> GetHistoriqueUser()
+        public async Task<string> GetHistoriqueUser()
         {
 
             string json = JsonConvert.SerializeObject(new
@@ -128,37 +128,51 @@ namespace Symfonax
             });
 
             Uri url = new Uri(string.Format("https://kroko.ovh/~soares/TestSymfony/public/index.php/listeEmpruntHistoriqueMobile"));
-            string response = await Post(url, json);
-           
-            var Reponse = await Client.GetAsync(url);
+            var response = await Post(url, json);
 
-            if (Reponse != null)
+
+            if (response != null)
             {
-                Debug.WriteLine("response "+response);
-                Debug.WriteLine("Test " + Reponse);
-
-
-                    var Donnees = await Reponse.Content.ReadAsStringAsync();
-
-               
-                List<RecupListeHistoriqueUser> listeHisto = JsonConvert.DeserializeObject<List<RecupListeHistoriqueUser>>(response);
-                Debug.WriteLine(listeHisto);
-                    return listeHisto;
-
-
+                Debug.WriteLine(response);
+                return response;
             }
             else
             {
                 Debug.WriteLine("problème récupération historique");
             }
 
-
-
-
-
             return null;
         }
 
+        // post création de compte 
+        public async Task<string> PostInscription(string Nom, string Prenom, string Username, string Mail, string Formation, string Passwd)
+        {
+            string json = JsonConvert.SerializeObject(new
+            {
+                nom = Nom,
+                prenom = Prenom,
+                identifiant = Username,
+                email = Mail,
+                formation = Formation,
+                password = Passwd
+            });
+
+            Uri url = new Uri(string.Format("https://kroko.ovh/~soares/TestSymfony/public/index.php/inscriptionMobile"));
+
+            string response = await Post(url, json);
+
+            Debug.WriteLine(response);
+            if (response != null)
+            {
+                Debug.WriteLine(response);
+                return response;
+            }
+            else
+            {
+                Debug.WriteLine("Test connexion fail");
+                return null;
+            }
+        }
 
     }
 }

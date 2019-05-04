@@ -3,14 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Symfonax.PageListeEmprunts">
         <ContentPage.Content>
-
-        
             
         <ScrollView>
-            <StackLayout x:Name = "LayoutEmprunt">
-            </StackLayout>
+
+                <Grid Margin="5">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                    
+                    <Frame Grid.Row="0" BorderColor="Gray">
+                        <StackLayout x:Name = "Layout2">
+                            <Label Text="Emprunts en cours" Margin="0,0,0,5" FontSize="16"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Frame Grid.Row="1" BorderColor="Gray">
+                        <StackLayout x:Name = "LayoutEmprunt">
+                            <Label Text="Emprunts Terminées" Margin="0,0,0,5" FontSize="16"/>
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
         </ScrollView>
-            
             
     </ContentPage.Content>
 </ContentPage>

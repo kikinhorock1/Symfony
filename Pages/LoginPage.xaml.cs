@@ -90,25 +90,26 @@ namespace Symfonax
 
         private void ValidationCompte_Clicked(object sender, EventArgs e)
         {
-            if (!IsValidEmail(EntryMail.Text))
-            {
-                EntryMail.BackgroundColor = Color.Red;
-                return;
-            }
+            //if (!IsValidEmail(EntryMail.Text))
+            //{
+            //    EntryMail.BackgroundColor = Color.Red;
+            //    return;
+            //}
 
-            if (EntryPassword.Text == null)
-            {
-                EntryPassword.BackgroundColor = Color.Red;
-                return;
-            }
+            //if (EntryPassword.Text == null)
+            //{
+            //    EntryPassword.BackgroundColor = Color.Red;
+            //    return;
+            //}
 
-            if (EntryPassword.Text.Length < 1)
-            {
-                EntryPassword.BackgroundColor = Color.Red;
-                return;
-            }
+            //if (EntryPassword.Text.Length < 1)
+            //{
+            //    EntryPassword.BackgroundColor = Color.Red;
+            //    return;
+            //}
 
-            TestConnexion(EntryMail.Text, EntryPassword.Text);
+            //TestConnexion(EntryMail.Text, EntryPassword.Text);
+            TestConnexion("admin@root.com", "root");
 
         }
 

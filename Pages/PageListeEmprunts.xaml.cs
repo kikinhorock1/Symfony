@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,13 +14,10 @@ namespace Symfonax
 	public partial class PageListeEmprunts : ContentPage
 	{
 
-        public List<RecupListeHistoriqueUser> resultatWeb;
-
-        public List<empruntHistorique> listeEmprunt;
+        public RecupListeHistorique listeHistorique;
 
         public PageListeEmprunts ()
 		{
-            listeEmprunt = new List<empruntHistorique>();
             InitializeComponent();
 
             RecuperationHistorique();
@@ -30,33 +28,13 @@ namespace Symfonax
         {
             var service = new ServicesWeb();
 
-            List<RecupListeHistoriqueUser> listeHistorique;
+            //recuperer les données aupres du serveur avec la classe service
+            string Donnees = await service.GetHistoriqueUser();       
+            Debug.WriteLine("ALOO " + Donnees);
 
-            listeHistorique = await service.GetHistoriqueUser(); // on ne passe pas à l'instruction suivante tant
-                                                    // que la fonction GetHistoriqueUser() n'est pas terminée
+            //deserialisation du json en format classe 
+            listeHistorique = JsonConvert.DeserializeObject<RecupListeHistorique>(Donnees);
 
-            foreach (RecupListeHistoriqueUser u in listeHistorique)
-            {
-                Debug.WriteLine("ID mat :  " + u.idMat);
-                Debug.WriteLine("Description : "+u.description);
-                Debug.WriteLine("Date de pret : " + u.datePret);
-                Debug.WriteLine("Date de retour demander: " + u.dateRetourDemander);
-                Debug.WriteLine("Date retour effectif : " + u.dateRetourEffectif);
-                Debug.WriteLine("Incident : " + u.incident);
-                Debug.WriteLine(" ");
-
-                var histo = new empruntHistorique();
-                histo.IdMat = u.idMat;
-                histo.Description = u.description;
-                histo.DatePret = u.datePret;
-                histo.DateRetourDemander = u.dateRetourDemander;
-                histo.DateRetourEffectif = u.dateRetourEffectif;
-                histo.Incident = u.incident;
-
-                listeEmprunt.Add(histo);
-
-            }
-            //Debug.WriteLine(listeHistorique.Count);
             CreationFrames();
         }
 
@@ -66,16 +44,36 @@ namespace Symfonax
             TapGestureRecognizer tap = new TapGestureRecognizer(); //gestion des evenements de click (Tapper)
             tap.Tapped += Tap_Tapped;
 
-            foreach (var u in listeEmprunt)
+            foreach (var u in listeHistorique.EmpruntTermines)
             {
                 var NouveauObjet = new StackLayout();
-                var Label1 = new Label { Text = ""+u.Description };
-                var Label2 = new Label { Text = u.DatePret };
-                Debug.WriteLine(u.Incident);
+                var Label1 = new Label { Text = ""+u.description };
+                var Label2 = new Label { Text = u.datePret };
 
                 NouveauObjet.Children.Add(Label1);
                 NouveauObjet.Children.Add(Label2);
+      
+                var Content = new FrameEmprunt
+                {
+                    Content = NouveauObjet,
+                    BorderColor = Color.Silver,
+                    VerticalOptions = LayoutOptions.CenterAndExpand,
+                    HorizontalOptions = LayoutOptions.Fill,
+                    Emprunt = new Emprunt(u.idMat, u.description, u.datePret, u.dateRetourDemander, u.dateRetourEffectif,u.incident)
+                };
 
+                Content.GestureRecognizers.Add(tap);
+                LayoutEmprunt.Children.Add(Content);
+            }
+
+            foreach (var u in listeHistorique.EmpruntEnCours)
+            {
+                var NouveauObjet = new StackLayout();
+                var Label1 = new Label { Text = "" + u.description };
+                var Label2 = new Label { Text = u.datePret };
+
+                NouveauObjet.Children.Add(Label1);
+                NouveauObjet.Children.Add(Label2);
 
                 var Content = new FrameEmprunt
                 {
@@ -83,18 +81,19 @@ namespace Symfonax
                     BorderColor = Color.Silver,
                     VerticalOptions = LayoutOptions.CenterAndExpand,
                     HorizontalOptions = LayoutOptions.Fill,
-                    Emprunt = u
+                    Emprunt = new Emprunt(u.idMat,u.description,u.datePret,u.dateRetourDemander,null,null)
                 };
 
                 Content.GestureRecognizers.Add(tap);
-                LayoutEmprunt.Children.Add(Content);
+                Layout2.Children.Add(Content);
             }
+
         }
 
         private async void Tap_Tapped(object sender, EventArgs e)
         {
             var uneFrame = sender as FrameEmprunt;
-            Debug.WriteLine(uneFrame.Emprunt.DatePret);
+            Debug.WriteLine(uneFrame.Emprunt);
             var Page = new PageDetailEmprunt(uneFrame.Emprunt);
 
             // On la pose sur la pille

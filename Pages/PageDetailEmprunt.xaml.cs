@@ -12,17 +12,17 @@ namespace Symfonax
 
     public partial class PageDetailEmprunt : ContentPage
     {
-        private empruntHistorique UnEmprunt;
+        private Emprunt UnEmprunt;
 
-        public PageDetailEmprunt(empruntHistorique emprunt)
+        public PageDetailEmprunt(Emprunt emprunt)
         {
             InitializeComponent();
             UnEmprunt = emprunt;
-            description.Text = UnEmprunt.Description;
-            DatePret.Text = UnEmprunt.DatePret;
-            DateRetourDemander.Text = UnEmprunt.DateRetourDemander;
-            DateRetourEffectif.Text = UnEmprunt.DateRetourEffectif;
-            Incident.Text = UnEmprunt.Incident;
+            description.Text = UnEmprunt.description;
+            DatePret.Text = UnEmprunt.datePret;
+            DateRetourDemander.Text = UnEmprunt.dateRetourDemander;
+            DateRetourEffectif.Text = UnEmprunt.dateRetourEffectif;
+            Incident.Text = UnEmprunt.incident;
         }
     }
 }

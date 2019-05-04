@@ -5,10 +5,31 @@ using Xamarin.Forms;
 
 namespace Symfonax
 {
-    class FrameEmprunt : Frame
+    public struct Emprunt
     {
-        private empruntHistorique emprunt = new empruntHistorique();
+        public int idMat { get; set; }
+        public string description { get; set; }
+        public string datePret { get; set; }
+        public string dateRetourDemander { get; set; }
+        public string dateRetourEffectif { get; set; }
+        public string incident { get; set; }
 
-        public empruntHistorique Emprunt { get => emprunt; set => emprunt = value; }
+        public Emprunt(int IdMat, string Description, string DatePret, string DateRetourDemander, string DateRetourEffectif, string Incident)
+        {
+            idMat = IdMat;
+            description = Description;
+            datePret = DatePret;
+            dateRetourDemander = DateRetourDemander;
+            dateRetourEffectif = DateRetourEffectif;
+            incident = Incident;
+        }
+
+    }
+
+    public class FrameEmprunt : Frame
+    {
+        private Emprunt emprunt;
+
+        public Emprunt Emprunt { get => emprunt; set => emprunt = value; }
     }
 }
