@@ -77,33 +77,42 @@ namespace Symfonax
                 EntryPassword.PlaceholderColor = Color.Black;
                 verif = false;
             }
-            else if (EntryPassword.Text.Length < 1)
+            else
             {
-                EntryPassword.BackgroundColor = Color.FromRgb(231, 72, 72);
-                EntryPassword.PlaceholderColor = Color.Black;
-                verif = false;
+                if (EntryPassword.Text.Length < 1)
+                {
+                    EntryPassword.BackgroundColor = Color.FromRgb(231, 72, 72);
+                    EntryPassword.PlaceholderColor = Color.Black;
+                    verif = false;
+                }
             }
-            if (EntryPassword.Text == EntryPassword2.Text)
+
+            if (EntryPassword2.Text == null)
             {
-                EntryPassword.BackgroundColor = Color.FromRgb(231, 72, 72);
                 EntryPassword2.BackgroundColor = Color.FromRgb(231, 72, 72);
-                LabelAideConnexion.Text = "Renseigner les champs manquant";
-                LabelAideConnexion.TextColor = Color.Red;
-                EntryPassword.PlaceholderColor = Color.Black;
                 EntryPassword2.PlaceholderColor = Color.Black;
                 verif = false;
             }
-            if (EntryNom.Text != "")
+            else
+            {
+                if (EntryPassword2.Text.Length < 1)
+                {
+                    EntryPassword2.BackgroundColor = Color.FromRgb(231, 72, 72);
+                    EntryPassword2.PlaceholderColor = Color.Black;
+                    verif = false;
+                }
+            }
+
+            if (EntryNom.Text == "" || EntryNom.Text == null)
             {
                 EntryNom.BackgroundColor = Color.FromRgb(231, 72, 72);
                 LabelAideConnexion.Text = "Renseigner les champs manquant";
                 LabelAideConnexion.TextColor = Color.Red;
                 EntryNom.PlaceholderColor = Color.Black;
                 verif = false;
-
-
             }
-            if (EntryPrenom.Text != "")
+
+            if (EntryPrenom.Text == "" || EntryPrenom.Text == null)
             {
                 EntryPrenom.BackgroundColor = Color.FromRgb(231, 72, 72);
                 LabelAideConnexion.Text = "Renseigner les champs manquant";
@@ -112,7 +121,7 @@ namespace Symfonax
                 verif = false;
             }
 
-            if (EntryUser.Text != "")
+            if (EntryUser.Text == "" || EntryUser.Text == null)
             {
                 EntryUser.BackgroundColor = Color.FromRgb(231, 72, 72);
                 LabelAideConnexion.Text = "Renseigner les champs manquant";
@@ -120,7 +129,8 @@ namespace Symfonax
                 EntryUser.PlaceholderColor = Color.Black;
                 verif = false;
             }
-            if (EntryFormation.Text != "")
+
+            if (EntryFormation.Text == "" || EntryFormation.Text == null)
             {
                 EntryFormation.BackgroundColor = Color.FromRgb(231, 72, 72);
                 LabelAideConnexion.Text = "Renseigner les champs manquant";
@@ -129,17 +139,27 @@ namespace Symfonax
                 verif = false;
             }
 
-
             if (verif)
             {
-                TestConnexion(EntryNom.Text, EntryPrenom.Text, EntryUser.Text, EntryMail.Text, EntryFormation.Text, EntryPassword.Text);
-                await Navigation.PopAsync();
+                if (EntryPassword.Text != EntryPassword2.Text)
+                {
+                    EntryPassword.BackgroundColor = Color.FromRgb(231, 72, 72);
+                    EntryPassword2.BackgroundColor = Color.FromRgb(231, 72, 72);
+                    LabelAideConnexion.Text = "les mots de passes sont différent";
+                    LabelAideConnexion.TextColor = Color.Red;
+                    EntryPassword.PlaceholderColor = Color.Black;
+                    EntryPassword2.PlaceholderColor = Color.Black;
+                    verif = false;
+                }
+                else
+                {
+                    TestConnexion(EntryNom.Text, EntryPrenom.Text, EntryUser.Text, EntryMail.Text, EntryFormation.Text, EntryPassword.Text);
+                    await Navigation.PopAsync();
+                }
+
             }
 
-
-
         }
-
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {

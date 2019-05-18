@@ -25,26 +25,20 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="30"/>
 
-
             </Grid.RowDefinitions>
 
-            <Label x:Name="LabelInfo" Text="Créer un compte !" HorizontalOptions="Center" Grid.Row="1" Margin="0,-10,0,0" FontSize="20"/>
-            <Entry x:Name="EntryNom" Grid.Row="2" Placeholder="Nom" PlaceholderColor="#bababa" FontSize="16"/>
-            <Entry x:Name="EntryPrenom" Grid.Row="3" Placeholder="Prénom" PlaceholderColor="#bababa" FontSize="16"/>
-            <Entry x:Name="EntryUser" Grid.Row="4" Placeholder="nom d'utilisateur" PlaceholderColor="#bababa" FontSize="16"/>
-            <Entry x:Name="EntryMail" Grid.Row="5" Placeholder="example@example.com" PlaceholderColor="#bababa" FontSize="16"/>
-            <Entry x:Name="EntryFormation" Grid.Row="6" Placeholder="Formation" PlaceholderColor="#bababa" FontSize="16"/>
-            <Entry x:Name="EntryPassword"  Grid.Row="7" TextChanged="Entry_TextChanged" Placeholder="votre mot de passe" IsPassword = "true" PlaceholderColor="#bababa" FontSize="16"/>
+            <Label x:Name="LabelInfo"  Text="Créer un compte !" HorizontalOptions="Center" Grid.Row="1" Margin="0,-10,0,0" FontSize="20"/>
+            <Entry x:Name="EntryNom" TextChanged="Entry_TextChanged" Grid.Row="2" Placeholder="Nom" PlaceholderColor="#bababa" FontSize="16"/>
+            <Entry x:Name="EntryPrenom" TextChanged="Entry_TextChanged" Grid.Row="3" Placeholder="Prénom" PlaceholderColor="#bababa" FontSize="16"/>
+            <Entry x:Name="EntryUser" Grid.Row="4" TextChanged="Entry_TextChanged" Placeholder="nom d'utilisateur" PlaceholderColor="#bababa" FontSize="16"/>
+            <Entry x:Name="EntryMail" Grid.Row="5" TextChanged="Entry_TextChanged" Placeholder="example@example.com" PlaceholderColor="#bababa" FontSize="16"/>
+            <Entry x:Name="EntryFormation" Grid.Row="6" TextChanged="Entry_TextChanged" Placeholder="Formation" PlaceholderColor="#bababa" FontSize="16"/>
+            <Entry x:Name="EntryPassword"  Grid.Row="7"  TextChanged="Entry_TextChanged" Placeholder="votre mot de passe" IsPassword = "true" PlaceholderColor="#bababa" FontSize="16"/>
             <Entry x:Name="EntryPassword2"  Grid.Row="8" TextChanged="Entry_TextChanged" Placeholder="confirmation mot de passe" IsPassword = "true" PlaceholderColor="#bababa" FontSize="16"/>
             <Label x:Name="LabelAideConnexion" Text="" HorizontalOptions="Center" Grid.Row="9" Margin="0,10,0,0" FontSize="13"/>
             <Button x:Name="ValidationInscription" Clicked="ValidationInscription_Clicked" Text="Inscription" BackgroundColor="#3897f0" TextColor="White" HeightRequest="50" VerticalOptions="Start" Grid.Row="10"/>
 
-
-
-
         </Grid>
-
-
 
     </Grid>
 
